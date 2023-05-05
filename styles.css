@@ -51,6 +51,15 @@ header {
   background-position: center;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: #67ECFB;
+}
+
 main {
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
