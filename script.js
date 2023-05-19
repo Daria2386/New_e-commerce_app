@@ -12,10 +12,12 @@ function toggleHamburgerMenu() {
 
 fetch('https://dummyjson.com/products')
   .then(response => response.json())
-  .then(data => {
-    const firstProduct = data.products[0];
+  .then(rawData => {
+    const products = rawData.products;
+    const firstProduct = products[25];
     const productPhotos = firstProduct.images;
-    renderSlider(productPhotos);
+    console.log('Product photos:', productPhotos);
+    // renderSlider(productPhotos);
   })
   .catch(error => {
     console.log('Error fetching product data:', error);
@@ -51,16 +53,6 @@ function renderSlider(photos) {
     });
   }
 }
-
-// fetch('https://dummyjson.com/products')
-//   .then(response => response.json())
-//   .then(data => {
-//     const products = data.products;
-//     console.log(products);
-//   })
-//   .catch(error => {
-//     console.error('Error fetching product data:', error);
-//   });
 
 // fetch('https://api.github.com/users/mlatysheva/repos')
 //   .then(response => response.json())
