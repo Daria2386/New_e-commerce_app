@@ -1,13 +1,13 @@
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".menu");
+const hamburger = document.getElementById('ham-menu');
+const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener("click", toggleHamburgerMenu);
+hamburger.addEventListener('click', toggleHamburgerMenu);
 
 navMenu.addEventListener('click', toggleHamburgerMenu);
 
 function toggleHamburgerMenu() {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
 }
 
 fetch('https://dummyjson.com/products')
