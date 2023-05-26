@@ -1,13 +1,13 @@
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".menu");
+const hamburger = document.getElementById('ham-menu');
+const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener("click", toggleHamburgerMenu);
+hamburger.addEventListener('click', toggleHamburgerMenu);
 
 navMenu.addEventListener('click', toggleHamburgerMenu);
 
 function toggleHamburgerMenu() {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
 }
 
 fetch('https://dummyjson.com/products')
@@ -23,7 +23,6 @@ fetch('https://dummyjson.com/products')
         renderProductDetails(products[productId - 1]);
       });
     })
-
   })
 
   .catch(error => {
@@ -33,31 +32,26 @@ fetch('https://dummyjson.com/products')
 
 function renderSlider(photos) {
   const slider = document.getElementById('slider');
-
-  photos.slice(0, 4).forEach((photoUrl) => {
+  photos.slice(0,4).forEach((photoUrl) => {
     const image = document.createElement('img');
     image.src = photoUrl;
+    console.log('image:', image)
     slider.appendChild(image);
-  });
-
+  })
   const pagination = document.getElementById('pagination');
-
   pagination.addEventListener('click', handlePaginationClick);
-
   function handlePaginationClick(event) {
     const clickedDot = event.target;
-    if (clickedDot.classList.contains('page-dot')) {
-      const index = parseInt(clickedDot.dataset.index);
-      scrollToIndex(index);
+    if(clickedDot.classList.contains('page-dot')){
+      const index = parseInt(clickedDot.dataset.index);scrollToIndex(index);
     }
   }
-
-  function scrollToIndex(index) {
+  function scrollToIndex(index){
     const scrollAmount = index * slider.offsetWidth;
     slider.scrollTo({
-      left: scrollAmount,
+      left:scrollAmount,
       behavior: 'smooth'
-    });
+    })
   }
 }
 
@@ -85,6 +79,7 @@ function renderProductDetails(product){
 //   .catch(error => {
 //     console.error('Error fetching product data:', error);
 //   });
+
 
 // fetch('https://api.github.com/users/mlatysheva/repos')
 //   .then(response => response.json())
