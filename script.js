@@ -52,6 +52,21 @@ function renderSlider(photos) {
   }
 }
 
+
+function renderProductDetails(product){
+  const titleElement = document.getElementById('product-title');
+  const descriptionElement = document.getElementById('product-description');
+  const priceElement = document.getElementById('product-price');
+  titleElement.innerText = product.title;
+  descriptionElement.innerText = product.description;
+  priceElement.innerText = `EUR ${product.price}`;
+  buyBtn.addEventListener('click', alertOnclick);
+  function  alertOnclick(){
+    alert(`${product.title} for EUR ${product.price} has been added to you`)
+  }
+  
+}
+
 // fetch('https://dummyjson.com/products')
 //   .then(response => response.json())
 //   .then(data => {
