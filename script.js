@@ -14,11 +14,17 @@ fetch('https://dummyjson.com/products')
   .then(response => response.json())
   .then(rawData => {
     const products = rawData.products;
-    const firstProduct = products[25];
-    const productPhotos = firstProduct.images;
-    console.log('Product photos:', productPhotos);
-    renderSlider(productPhotos);
+    const productIds = [15, 26, 13];
+    productIds.forEach((productId) => {
+      const imageElement = document.getElementById(`product-${productId}`);
+      console.log('imageElement:', imageElement);
+      imageElement.addEventListener('click', () => {
+        renderSlider(products[productId - 1].images);
+        renderProductDetails(products[productId - 1]);
+      });
+    })
   })
+
   .catch(error => {
     console.log('Error fetching product data:', error);
   });
@@ -48,6 +54,31 @@ function renderSlider(photos) {
     })
   }
 }
+
+
+function renderProductDetails(product){
+  const titleElement = document.getElementById('product-title');
+  const descriptionElement = document.getElementById('product-description');
+  const priceElement = document.getElementById('product-price');
+  titleElement.innerText = product.title;
+  descriptionElement.innerText = product.description;
+  priceElement.innerText = `EUR ${product.price}`;
+  buyBtn.addEventListener('click', alertOnclick);
+  function  alertOnclick(){
+    alert(`${product.title} for EUR ${product.price} has been added to you`)
+  }
+  
+}
+
+// fetch('https://dummyjson.com/products')
+//   .then(response => response.json())
+//   .then(data => {
+//     const products = data.products;
+//     console.log(products);
+//   })
+//   .catch(error => {
+//     console.error('Error fetching product data:', error);
+//   });
 
 
 // fetch('https://api.github.com/users/mlatysheva/repos')
