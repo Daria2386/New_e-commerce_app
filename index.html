@@ -12,7 +12,7 @@
     <div class="wrapper header-wrapper">
       <div class="logo"></div>
       <nav class="nav-container">
-        <ul class="menu">
+        <ul class="menu" id="nav-menu">
           <li class="nav-item"><a href="#main" class="nav-link">Main</a></li>
           <li class="nav-item"><a href="#top-sellers" class="nav-link">Top Sellers</a></li>
           <li class="nav-item"><a href="#product-details" class="nav-link">Product Details</a></li>
@@ -20,7 +20,7 @@
         </ul>
       </nav>
       
-      <div class="hamburger">
+      <div class="hamburger" id="ham-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -42,17 +42,15 @@
     </section>
     <section class="section product-details-section">
       <h2 id="product-details">Product details</h2>
-      <div id="slider-container">
-        <div id="slider" class="slider">
+      <div id="slider" class="slider"></div>
 
-        </div>
-      </div>
       <div id="pagination" class="pagination">
         <span class="page-dot" data-index="0"></span>
         <span class="page-dot" data-index="1"></span>
         <span class="page-dot" data-index="2"></span>
         <span class="page-dot" data-index="3"></span>
       </div>
+      
       <h3>Microsoft Surface Laptop 4</h3>
       <p class="description">
         Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.
@@ -72,6 +70,6 @@
       Contact us
     </div>
   </footer> 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
