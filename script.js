@@ -13,9 +13,11 @@ function toggleHamburgerMenu() {
 fetch('https://dummyjson.com/products')
   .then(response => response.json())
   .then(data => {
-    const firstProduct = data.products[0];
-    const productPhotos = firstProduct.images;
-    renderSlider(productPhotos);
+    const products = rawData.products;
+    const product25 = data.products[25];
+    const product25photos = firstProduct.images;
+    renderSlider(product25photos);
+    renderProductDetails(product25);
   })
   .catch(error => {
     console.log('Error fetching product data:', error);
