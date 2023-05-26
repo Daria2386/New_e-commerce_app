@@ -106,6 +106,7 @@ footer {
 /* Slider section */
 
 .slider {
+  width: 400px;
   display: flex;
   overflow-x: scroll;
 }
@@ -128,9 +129,12 @@ footer {
   margin: 0 5px;
   cursor: pointer;
 
-  &:hover {
+  /* &:hover {
     background-color: var(--accent-color);
-  }
+  } */
+}
+.page-dot:hover{
+  background-color: var(--accent-color);
 }
 
 .menu {
