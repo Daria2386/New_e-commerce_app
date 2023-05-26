@@ -12,13 +12,20 @@ function toggleHamburgerMenu() {
 
 fetch('https://dummyjson.com/products')
   .then(response => response.json())
-  .then(data => {
+  .then(rawData => {
     const products = rawData.products;
-    const product25 = data.products[25];
-    const product25photos = firstProduct.images;
-    renderSlider(product25photos);
-    renderProductDetails(product25);
+    const productIds = [15, 26, 13];
+    productIds.forEach((productId) => {
+      const imageElement = document.getElementById(`product-${productId}`);
+      console.log('imageElement:', imageElement);
+      imageElement.addEventListener('click', () => {
+        renderSlider(products[productId - 1].images);
+        renderProductDetails(products[productId - 1]);
+      });
+    })
+
   })
+
   .catch(error => {
     console.log('Error fetching product data:', error);
   });
